@@ -1,10 +1,95 @@
-/** 
+/**
 * Anax Flat theme.
 */
 @import url(modules.less);
 
+@mainTextColor: #333;
+
+// Hamburger styling
+@maxButtonFontSize: 2rem;
+
+.rm-max.rm-navbar {
+    // I do _not_ want absolute position and I want no show on larger screens
+    display: none;
+    position: relative;
+    margin: 0 1rem;
+    top: 0;
+    right: 0;
+}
+
+// media query sizes
+@screen-medium: 700px;
+
+body {
+    color: @mainTextColor;
+    font-family: "arial";
+    overflow: scroll;
+}
+
+img {
+    max-width: 100%;
+}
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0.3rem;
+}
+
+.site-logo-text {
+    color: @mainTextColor;
+    font-family: "helvetica", "arial", sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: 3px solid;
+    margin: 0.3rem 0;
+    padding: 0.1rem;
+    letter-spacing: 0.1rem;
+    a {
+        color: @mainTextColor;
+        text-decoration: none;
+    }
+}
+
+.rm-desktop {
+    display: flex;
+    letter-spacing: 0.1rem;
+
+    li a {
+        display: inline;
+        padding: 0;
+    }
+
+    li a:hover {
+        border-bottom: 3px solid blue;
+    }
+
+    li:not(:first-child) {
+        border-left: 1px solid lighten(@mainTextColor, 50%);
+        padding: 0;
+        padding-left: 1.5rem;
+        margin-left: 1.5rem;
+    }
+
+    .selected a {
+        text-decoration: underline;
+        border-bottom: 3px solid red;
+    }
+}
 
 
+/** --------------------------------------------------------------
+ *  Responsiveness
+ */
+@media (max-width: @screen-medium) {
+    .rm-navbar-top {
+        display: none;
+    }
+    .rm-max.rm-navbar {
+        display: block;
+    }
+}
 /** --------------------------------------------------------------
  *  Logo images
  */
