@@ -806,7 +806,8 @@ a:visited {
 .rm-desktop li a {
   display: inline;
   padding: 0;
-  margin: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
   text-decoration: none;
   border-bottom: none;
 }
