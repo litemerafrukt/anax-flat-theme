@@ -3,84 +3,214 @@
 */
 @import url(modules.less);
 
+/* Color palette constructed from deeppink on paletton.com */
+@color-primary-0: #FF1494;	/* Main Primary color */
+@color-primary-1: #FE71BE;
+@color-primary-2: #FF42A9;
+@color-primary-3: #FF008B;
+@color-primary-4: #EB0080;
+
+@color-secondary-1-0: #14FF23;	/* Main Secondary color (1) */
+@color-secondary-1-1: #71FE7B;
+@color-secondary-1-2: #42FF4E;
+@color-secondary-1-3: #00FF11;
+@color-secondary-1-4: #00E80F;
+
+@color-secondary-2-0: #FCFF14;	/* Main Secondary color (2) */
+@color-secondary-2-1: #FDFF72;
+@color-secondary-2-2: #FDFF42;
+@color-secondary-2-3: #FCFF00;
+@color-secondary-2-4: #FBFF00;
+
+// Some colordefs
 @mainTextColor: #333;
+@mainBackgroundColor: #fff;
 
-// Hamburger styling
+// Hamburger + rm-styling styling
 @maxButtonFontSize: 2rem;
-
-.rm-max.rm-navbar {
-    // I do _not_ want absolute position and I want no show on larger screens
-    display: none;
-    position: relative;
-    margin: 0 1rem;
-    top: 0;
-    right: 0;
-}
+@maxBgColor: @mainTextColor;
 
 // media query sizes
+@screen-small: 550px;
 @screen-medium: 700px;
+@screen-large: 1000px;
+
+/** --------------------------------------------------------------
+ *  General stuff, tag-level
+ */
 
 body {
     color: @mainTextColor;
-    font-family: "arial";
+    // font-family: "input sans";
+    font-family: "Lekton", sans-serif;
+    font-size: 1.2rem;
     overflow: scroll;
+    line-height: 1.5rem;
+    @media (max-width: @screen-small) {
+        font-size: 1rem;
+    }
 }
 
 img {
     max-width: 100%;
 }
 
+figcaption {
+    font-size: small;
+}
+
+a {
+    color: @mainTextColor;
+    text-decoration: none;
+    border-bottom: 1px solid @color-secondary-1-1;
+}
+
+a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid @color-secondary-2-1;
+}
+
+a:visited {
+    color: lighten(@mainTextColor, 25%);
+}
+
+/** --------------------------------------------------------------
+ *  General stuff, wrapping classes
+ */
+
+.wrap-all {
+    max-width: 100%;
+}
+
+.outer-wrap {
+    max-width: 98%;
+
+    &.outer-wrap-footer {
+        max-width: 100%;
+        margin: 0;
+    }
+}
+
+.outer-wrap-main {
+    margin: 2rem auto;
+    min-height: 30rem;
+}
+
+.row {
+    overflow: auto;
+}
+
+// Major page layout classes
+.site-footer {
+    padding-bottom: 1rem;
+}
+
 .site-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 0.3rem;
+    margin: 1rem 0.3rem;
 }
 
+// Site wide selected class
+.selected a {
+    background-color: @color-secondary-2-1;
+}
+
+/** --------------------------------------------------------------
+ *  header styling
+ */
+
 .site-logo-text {
-    color: @mainTextColor;
+    // color: @mainTextColor;
+    // color: @color-primary-0;
     font-family: "helvetica", "arial", sans-serif;
     font-weight: bold;
-    font-size: 1.5rem;
-    border: 3px solid;
+    // font-size: 1.5rem;
+    font-size: x-large;
+    border: 3px solid @mainTextColor;
     margin: 0.3rem 0;
-    padding: 0.1rem;
+    padding: 0.2rem;
     letter-spacing: 0.1rem;
     a {
-        color: @mainTextColor;
+        color: @color-primary-0;
         text-decoration: none;
+        border-bottom: none;
     }
+}
+
+.profile {
+    width: 100%;
 }
 
 .rm-desktop {
     display: flex;
+    // font-size: 1.5rem;
+    font-size: large;
     letter-spacing: 0.1rem;
+    justify-content: space-around;
 
     li a {
         display: inline;
         padding: 0;
+        margin: 1rem;
+        text-decoration: none;
+        border-bottom: none;
     }
 
     li a:hover {
-        border-bottom: 3px solid blue;
+        border-bottom: 3px solid @color-secondary-2-1;
+        text-decoration: none;
     }
 
-    li:not(:first-child) {
+    li {
         border-left: 1px solid lighten(@mainTextColor, 50%);
-        padding: 0;
-        padding-left: 1.5rem;
-        margin-left: 1.5rem;
     }
 
     .selected a {
-        text-decoration: underline;
-        border-bottom: 3px solid red;
+        // text-decoration: underline;
+        border-bottom: 3px solid @color-secondary-1-0;
+        background-color: @mainBackgroundColor;
     }
 }
 
+// Responsive menu tweaks
+.rm-menu-button {
+    border: none;
+    a:hover {
+        border: none;
+    }
+}
+
+.rm-max.rm-navbar {
+    // I do _not_ want absolute position and I want no show on larger screens
+    display: none;
+    font-size: 1.2rem;
+    position: relative;
+    margin: 0 1rem;
+    top: 0;
+    right: 0;
+
+    a {
+        border: none;
+        color: @mainBackgroundColor;
+    }
+
+    a:hover {
+        border: none;
+    }
+
+    a:visited {
+        color: @mainBackgroundColor;
+    }
+
+    .selected a {
+        background-color: @mainTextColor;
+    }
+}
 
 /** --------------------------------------------------------------
- *  Responsiveness
+ *  Responsiveness for the menu switch
  */
 @media (max-width: @screen-medium) {
     .rm-navbar-top {
@@ -90,17 +220,123 @@ img {
         display: block;
     }
 }
-/** --------------------------------------------------------------
- *  Logo images
- */
-.logo-1 {
-    position: absolute;
-    top: 70px;
-    left: -140px;
-}
 
-.site-logo-text-icon {
-    img {
-        vertical-align: bottom;
+/** --------------------------------------------------------------
+ *  Breadcrumb
+ */
+.breadcrumb-list {
+    font-size: smaller;
+    ul {
+        list-style-type: none;
+        display: flex;
+    }
+
+    li {
+        // display: inline;
+        text-transform: lowercase;
+        &::before {
+            content: "/";
+            color: @mainTextColor;
+        }
+    }
+
+    ul::before {
+        content: "ur@: "
     }
 }
+
+/** --------------------------------------------------------------
+ *  Main content area
+ */
+.main {
+    width: 66%;
+    float: left;
+
+    @media (max-width: @screen-medium) {
+        display: block;
+        float: none;
+        width: 100%;
+    }
+}
+
+.article, .next-previous {
+    max-width: 40rem;
+    // max-width: 80%;
+    margin: 0 auto;
+
+}
+
+
+.sidebar {
+    float: right;
+
+    @media (max-width: @screen-medium) {
+        float: none;
+        width: 100%;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid lighten(@mainTextColor, 55%);
+        li {
+            display: inline-block;
+            padding: 0.5rem;
+        }
+    }
+}
+
+
+/** --------------------------------------------------------------
+ *  Footer, inkluding byline
+ */
+.byline {
+    img {
+        float: left;
+        max-width: 64px;
+        margin-right: 1rem;
+    }
+}
+
+.footer {
+    color: @mainBackgroundColor;
+    background-color: @mainTextColor;
+    // font-size: smaller;
+
+    a {
+        color: darken(@mainBackgroundColor, 25%);
+    }
+}
+
+.footer-column-wrapper {
+    display: flex;
+    justify-content: space-around;
+
+    // .footer-column:not(:first-child) {
+    //     border-left: 1px solid;
+    // }
+
+    @media (max-width: @screen-medium) {
+        flex-direction: column;
+
+        li {
+            display: inline-block;
+        }
+    }
+}
+
+.footer-column {
+    float: none;
+    width: 100%;
+    flex: 1;
+    padding: 1rem;
+}
+
+/** --------------------------------------------------------------
+ *  hljs tweaks
+ */
+.hljs {
+    font-size: 1rem;
+}
+
+.hljs-tag {
+    background: @mainBackgroundColor;
+}
+
