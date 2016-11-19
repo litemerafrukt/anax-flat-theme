@@ -1,0 +1,90 @@
+/* General layout */
+// media query sizes
+
+@screen-small: 600px;
+@screen-medium: 800px;
+@screen-large: 1000px;
+@screen-xlarge: 1200px;
+
+@maxWidth: 1300px;
+// First column == 0, 'cos we are programmers
+.push-columns(@colnr) {
+    margin-left: @totalWidth * (((@columnWidth + @gutterWidth) * @colnr ) + @gutterWidth / 2);
+}
+
+.wrap-all {
+    // max-width: 100%;
+    margin-top: 11px;
+}
+
+.profile {
+    width: 100%;
+}
+
+.row {
+    .container();
+    // margin-top: 1rem;
+    max-width: @maxWidth;
+    .row();
+}
+
+.next-previous {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+// .article, .next-previous {
+.main {
+    .column(7);
+    // Force main to second column
+    .push-columns(1);
+    min-height: 30 * @magicNumber;
+
+    @media (min-width: @screen-xlarge) {
+        .column(6);
+        .push-columns(1);
+    }
+
+    @media (max-width: @screen-medium) {
+        .column(10);
+        .push-columns(1);
+    }
+
+    @media (max-width: @screen-small) {
+        .column(12);
+        .push-columns(0);
+    }
+}
+
+.sidebar-right {
+    .push-columns(1);
+
+    @media (max-width: @screen-medium) {
+        .column(12);
+        .push-columns(0);
+    }
+}
+
+// I can't find where in the anax-flat or anax projects where
+// footer-width is set. So lets "normalize" it!
+.footer {
+    width: 100%;
+    align-self: flex-end;
+}
+
+.site-header {
+    .column(12);
+}
+
+.breadcrumb-wrap {
+    .column(12);
+}
+
+.footer-column {
+    .column(4);
+}
+
+.site-footer {
+    .column(12);
+}

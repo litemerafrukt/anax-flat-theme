@@ -142,7 +142,7 @@ npm-version:
 	$(NPMBIN)/lessc --version
 	$(NPMBIN)/csslint --version
 
-# target: upgrade-normalize       - Upgrade LESS module - Normalize.
+# target: upgrade-normalize        - Upgrade LESS module - Normalize.
 .PHONY: upgrade-normalize
 upgrade-normalize:
 	@$(call HELPTEXT,$@)
@@ -150,7 +150,7 @@ upgrade-normalize:
 	# Normalizer
 	wget --quiet https://necolas.github.io/normalize.css/latest/normalize.css -O $(LESS_MODULES)normalize.less
 
-# target: upgrade-responsive-menu       - Upgrade responsive menu.
+# target: upgrade-responsive-menu   - Upgrade responsive menu.
 .PHONY: upgrade-responsive-menu
 upgrade-responsive-menu:
 	@$(call HELPTEXT,$@)
@@ -159,7 +159,16 @@ upgrade-responsive-menu:
 	wget --quiet https://raw.githubusercontent.com/mosbth/responsive-menu/master/src/less/responsive-menu.less -O $(LESS_MODULES)responsive-menu.less
 	wget --quiet https://raw.githubusercontent.com/mosbth/responsive-menu/master/src/js/responsive-menu.js -O $(LESS_MODULES)responsive-menu.js
 
+#target: upgrade-grid             - Upgrade grid
+.PHONY: upgrade-grid
+upgrade-grid:
+	@$(call HELPTEXT,$@)
+
+	# thou grid
+	wget --quiet https://raw.githubusercontent.com/dbwebb-se/design/master/example/grid/fluid/less/grid-flex.less -O $(LESS_MODULES)grid-flex.less
+	wget --quiet https://raw.githubusercontent.com/dbwebb-se/design/master/example/grid/fluid/less/grid-float.less -O $(LESS_MODULES)grid-float.less
+
 # target: upgrade                 - Upgrade external external theme dependencies.
 .PHONY: upgrade
-upgrade: upgrade-normalize upgrade-responsive-menu
+upgrade: upgrade-normalize upgrade-responsive-menu upgrade-grid
 	@$(call HELPTEXT,$@)
