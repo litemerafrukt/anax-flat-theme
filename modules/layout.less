@@ -12,10 +12,10 @@
     margin-left: @totalWidth * (((@columnWidth + @gutterWidth) * @colnr ) + @gutterWidth / 2);
 }
 
-.wrap-all {
-    // max-width: 100%;
-    margin-top: 11px;
-}
+// .wrap-all {
+//     // max-width: 100%;
+//     // margin-top: 5px;
+// }
 
 .profile {
     width: 100%;
@@ -70,11 +70,12 @@
 // footer-width is set. So lets "normalize" it!
 .footer {
     width: 100%;
-    align-self: flex-end;
+    // align-self: flex-end;
 }
 
 .site-header {
     .column(12);
+    height: @magicNumber * 3;
 }
 
 .breadcrumb-wrap {
@@ -86,5 +87,9 @@
 }
 
 .site-footer {
+    .column(12);
+}
+
+.flash-wrap {
     .column(12);
 }

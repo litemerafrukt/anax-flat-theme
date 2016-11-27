@@ -1,0 +1,55 @@
+// Dark theme
+@import url(lightColorDarkBase.less);
+@import "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/atom-one-dark.min.css";
+
+// Inspired from one dark theme in atom
+@color-primary-0: #BF52C3;	/* Main Primary color */
+@color-primary-1: #EDAEEF;
+@color-primary-2: #D77BDB;
+@color-primary-3: #A533A9;
+@color-primary-4: #941998;
+
+@color-complement-0: #E2F968;	/* Main Complement color */
+@color-complement-1: #F2FEB9;
+@color-complement-2: #EAFC8D;
+@color-complement-3: #DBF74A;
+@color-complement-4: #C3E224;
+
+@mainBackgroundColor: #303340;
+@mainTextColor: #DEE2F7;
+
+@headerBackgroundColor: @mainBackgroundColor;
+
+@fontFamilyBody:      "Roboto", sans-serif;
+@fontFamilyHeadings:  "Roboto", sans-serif;
+
+@borderHeadFoot: 5px solid @color-primary-4;
+@borderFlash: 3px solid @color-primary-4;
+
+// h1, h2 {
+//     color: @color-primary-1;
+// }
+
+a {
+    color: @color-complement-0;
+}
+
+a:visited {
+    color: @color-complement-4;
+}
+
+.site-logo-text {
+    background-color: @color-primary-0;
+    a {
+        color: @headerBackgroundColor;
+        text-decoration: none;
+    }
+}
+
+.rm-desktop {
+    color: @color-complement-4;
+}
+
+.hljs-tag {
+    background: none;
+}

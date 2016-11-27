@@ -1,0 +1,27 @@
+// Style based on typography
+@import url(lightColorDarkBase.less);
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Playfair+Display');
+
+@fontFamilyBody: "Crimson Text", serif;
+@fontFamilyHeadings: "Playfair Display", serif;
+
+@mainBackgroundColor: @headerBackgroundColor;
+
+@borderHeadFoot: 5px double @mainTextColor;
+@borderFlash: 2px solid @mainTextColor;
+
+h1, h2 {
+    border-bottom: 3px double @mainTextColor;
+}
+
+.site-logo-text {
+    font-size: xx-large;
+    background-color: #DD6554;
+}
+
+.site-header {
+    // font-family: @fontFamilyHeadings;
+    font-weight: bold;
+    font-size: x-large;
+    height: @magicNumber * 5 - 5;
+}

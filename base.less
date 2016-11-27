@@ -1,0 +1,185 @@
+// Base setup for my themes
+
+@import url(modules.less);
+
+// Hamburger + rm-styling styling
+@navbarMenuButtonColor: @mainTextColor;
+@maxButtonFontSize: 2rem;
+@maxBgColor: @mainTextColor;
+
+// Some colordefs
+@mainTextColor: #444;
+@mainBackgroundColor: #fff;
+
+.show-grid {
+    .showGrid(@maxWidth);
+}
+
+.show-typography {
+    background: url(../img/typography/horisontal-grid-24.png);
+}
+
+.floatImg256 {
+    max-width: 256px;
+    float: right;
+
+    @media (max-width: 500px) {
+        display: block;
+        float: none;
+        margin: 0 auto;
+    }
+}
+// style="border-spacing: 4px; border-collapse: separate"
+
+.color-table {
+    border: solid black;
+    border-collapse: collapse;
+}
+
+.color-table th, .color-table td {
+    border: solid black;
+    height: 50px;
+    width: 50px;
+}
+
+body {
+    .font();
+    color: @mainTextColor;
+    overflow-y: scroll;
+}
+
+img {
+    max-width: 100%;
+}
+
+figcaption {
+    font-size: small;
+}
+
+.site-header {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-logo-text {
+    font-family: @fontFamilyHeadings;
+}
+
+.rm-desktop {
+    display: flex;
+    font-family: @fontFamilyHeadings;
+    justify-content: space-around;
+
+    .selected a {
+        border-bottom: 1px solid @mainTextColor;
+        background-color: @mainBackgroundColor;
+    }
+
+    ul {
+        background-color: @mainBackgroundColor;
+    }
+}
+
+// Responsive menu tweaks
+.rm-menu-button {
+    border: none;
+    a:hover {
+        border: none;
+    }
+}
+
+.rm-max.rm-navbar {
+    // I do _not_ want absolute position and I want no show on larger screens
+    display: none;
+    font-size: 1.2rem;
+    position: relative;
+    margin: 0 @magicNumber;
+    top: 0;
+    right: 0;
+
+    a {
+        border: none;
+        color: @mainBackgroundColor;
+    }
+
+    a:hover {
+        border: none;
+    }
+
+    // a:visited {
+    //     // color: @mainBackgroundColor;
+    // }
+
+    .selected a {
+        background-color: @mainTextColor;
+    }
+}
+
+/** --------------------------------------------------------------
+ *  Responsiveness for the menu switch
+ */
+@media (max-width: @screen-medium) {
+    .rm-navbar-top {
+        display: none;
+    }
+    .rm-max.rm-navbar {
+        display: block;
+    }
+}
+
+/** --------------------------------------------------------------
+ *  Footer, inkluding byline
+ */
+.byline {
+    img {
+        float: left;
+        max-width: 64px;
+        margin-right: 1rem;
+    }
+}
+
+.footer-column-wrapper {
+    display: flex;
+
+    @media (max-width: @screen-medium) {
+        flex-direction: column;
+
+        li {
+            display: inline-block;
+        }
+    }
+}
+
+.footer-column {
+    float: none;
+    width: 100%;
+    flex: 1;
+}
+
+.site-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    ul {
+        padding: 0;
+        list-style-type: none;
+        li {
+            display: inline;
+        }
+    }
+}
+
+/** --------------------------------------------------------------
+ *  hljs tweaks
+ */
+.hljs {
+    font-size: @fontSizeBody;
+    line-height: @magicNumber;
+    padding: 0;
+}
+
+.hljs-tag {
+    background: @mainBackgroundColor;
+}

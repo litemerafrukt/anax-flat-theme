@@ -1,0 +1,141 @@
+// Fun theme
+@import url(base.less);
+@import "https://fonts.googleapis.com/css?family=Press+Start+2P";
+
+@colorMarioBrown: #CC4B09;
+@colorMarioPink: #FFBAAA;
+@colorMarioSky: #5D94FB;
+@colorMarioGreen: #127C22;
+@colorMarioLightSky: #DBFCFF;
+
+@mainTextColor: #000;
+// @mainBackgroundColor: #fff;
+@mainBackgroundColor: lighten(@colorMarioSky, 25%);
+
+@headerBackgroundColor: @colorMarioSky;
+@headerTextColor: #fff;
+
+@gameFont: "Press Start 2P", cursive;
+
+@fontFamilyBody:      "Roboto", sans-serif;
+@fontFamilyHeadings:  @gameFont;
+
+@borderTop: 5px solid @colorMarioPink;
+@borderBottom: 5px solid black;
+
+
+
+body {
+    background-color: @mainBackgroundColor;
+    color: @mainTextColor;
+}
+
+a {
+    color: @colorMarioGreen;
+}
+
+a:visited {
+    color: @colorMarioPink;
+    // color: lighten(@colorMarioGreen, 10%);
+}
+
+.main {
+    h1, h2 {
+        border-bottom: 2px solid @colorMarioGreen;
+    }
+}
+img {
+    display: inherit;
+}
+
+code {
+    background-color: @mainBackgroundColor;
+}
+
+.dragon {
+    .floatImg256();
+}
+
+.site-logo-text {
+    font-weight: bold;
+    font-size: x-large;
+    background-color: @colorMarioBrown;
+    padding: 0 13px;
+    letter-spacing: 0.1rem;
+    a {
+        color: @colorMarioPink;
+        text-decoration: none;
+        text-shadow: 0px 3px 0px black;
+    }
+
+}
+
+.site-header {
+    background-color: @headerBackgroundColor;
+    color: @headerTextColor;
+    @media (max-width: @screen-large) {
+        flex-wrap: wrap;
+        padding: @magicNumber 0;
+    }
+}
+
+// .flash-wrap {
+//     border-bottom: @borderBottom;
+// }
+
+.rm-desktop {
+
+    .selected a {
+        border: none;
+        background-color: @headerBackgroundColor;
+        text-decoration: underline;
+    }
+
+    ul {
+        background-color: @headerBackgroundColor;
+    }
+}
+
+
+/** --------------------------------------------------------------
+ *  Breadcrumb
+ */
+.breadcrumb-list {
+    font-size: smaller;
+    font-family: @gameFont;
+    ul {
+        list-style-type: none;
+        display: flex;
+        padding: 0;
+    }
+
+    li {
+        text-transform: lowercase;
+        &::before {
+            content: "/";
+            color: @mainTextColor;
+        }
+    }
+
+    a {
+        color: @colorMarioGreen;
+    }
+}
+
+.outer-wrap-footer {
+    background-color: @colorMarioBrown;
+    border-top: @borderBottom;
+}
+
+.outer-wrap-header {
+    background-color: @colorMarioSky;
+    border-bottom: @borderTop;
+}
+
+.outer-wrap-flash {
+    background-color: @mainBackgroundColor;
+}
+
+.flash-wrap {
+    border-bottom: @borderBottom;
+}

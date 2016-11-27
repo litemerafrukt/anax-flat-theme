@@ -1,0 +1,98 @@
+// Color theme
+@import url(base.less);
+
+@import "https://fonts.googleapis.com/css?family=Montserrat|Roboto";
+
+@headerBackgroundColor: #f7f7f7;
+
+@fontFamilyBody:      "Roboto", sans-serif;
+@fontFamilyHeadings:  "Roboto", sans-serif;
+
+@borderHeadFoot: 3px double @mainTextColor;
+@borderFlash: 1px solid @mainTextColor;
+
+body {
+    background-color: @mainBackgroundColor;
+    color: @mainTextColor;
+}
+
+a {
+    color: lighten(@mainTextColor, 10%);
+}
+
+a:visited {
+    color: lighten(@mainTextColor, 25%);
+}
+
+img {
+    display: inherit;
+}
+
+code {
+    background-color: @mainBackgroundColor;
+}
+
+.dragon {
+    .floatImg256();
+}
+
+.site-logo-text {
+    font-weight: bold;
+    font-size: x-large;
+    // border: 7px solid @headerBackgroundColor;
+    background-color: lighten(@mainTextColor, 33%);
+    padding: 0 7px;
+    letter-spacing: 0.1rem;
+    a {
+        color: @headerBackgroundColor;
+        text-decoration: none;
+    }
+}
+
+.site-header {
+    background-color: @headerBackgroundColor;
+    border-bottom: @borderHeadFoot;
+}
+
+.flash-wrap {
+    border-bottom: @borderFlash;
+}
+
+.rm-desktop {
+
+    .selected a {
+        border: none;
+        background-color: @headerBackgroundColor;
+        text-decoration: underline;
+    }
+
+    ul {
+        background-color: @headerBackgroundColor;
+    }
+}
+
+
+/** --------------------------------------------------------------
+ *  Breadcrumb
+ */
+.breadcrumb-list {
+    font-size: smaller;
+    ul {
+        list-style-type: none;
+        display: flex;
+        padding: 0;
+    }
+
+    li {
+        text-transform: lowercase;
+        &::before {
+            content: "/";
+            color: @mainTextColor;
+        }
+    }
+}
+
+.footer {
+    background-color: @headerBackgroundColor;
+    border-top: @borderHeadFoot;
+}
