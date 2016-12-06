@@ -32,6 +32,8 @@
  *  General stuff, tag-level
  */
 
+@navbarMenuButtonColor: @color-primary-0;
+
 @maxWidth: 100%;
 
 body {
@@ -78,6 +80,10 @@ article, section, .block {
 figure {
     background-color: @mainBackgroundColor;
 }
+
+select {
+    max-width: 100%;
+}
 /** --------------------------------------------------------------
  *  General stuff, wrapping classes
  */
@@ -87,8 +93,15 @@ figure {
 }
 
 .site-header {
-    align-items: center;
-    justify-content: space-between;
+    // align-items: center;
+    // justify-content: space-between;
+    @media (max-width: @screen-large) {
+        flex-wrap: wrap;
+        padding: @magicNumber 0;
+    }
+    @media (max-width: @screen-medium) {
+        flex-wrap: nowrap;
+    }
 }
 
 // // Site wide selected class
@@ -111,6 +124,10 @@ figure {
         color: @mainBackgroundColor;
         border-bottom: none;
     }
+}
+
+.rm-max .rm-small .rm-button {
+    color: @color-primary-0;
 }
 
 .rm-desktop {
