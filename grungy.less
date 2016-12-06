@@ -1,0 +1,223 @@
+/**
+* Anax Flat theme.
+*/
+// @import url(modules.less);
+// @import url(mybasetypography.less);
+
+@import url(base.less);
+
+// @import "https://fonts.googleapis.com/css?family=Montserrat|Roboto";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Special+Elite');
+
+/* Color palette constructed from the orange on street electricstations */
+@color-primary-0: #FFD300;	/* Main Primary color */
+@color-primary-1: #FFE463;
+@color-primary-2: #FFDD39;
+@color-primary-3: #C5A300;
+@color-primary-4: #9B8000;
+
+@color-secondary-1-0: #FF0000;	/* Main Secondary color (1) */
+@color-secondary-1-1: #FF6363;
+@color-secondary-1-2: #FF3939;
+@color-secondary-1-3: #C50000;
+@color-secondary-1-4: #9B0000;
+
+@color-secondary-2-0: #00CC00;	/* Main Secondary color (2) */
+@color-secondary-2-1: #54D954;
+@color-secondary-2-2: #2ECF2E;
+@color-secondary-2-3: #009E00;
+@color-secondary-2-4: #007C00;
+
+/** --------------------------------------------------------------
+ *  General stuff, tag-level
+ */
+
+@maxWidth: 100%;
+
+body {
+    background-image: url('../image/wallback/wallwtftiled.jpg&sharpen');
+}
+
+// @fontFamilyHeadings:  "miriam libre", sans-serif;
+// @fontFamilyBody:      "source sans pro", sans-serif;
+@fontFamilyHeadings:  'Special Elite', cursive;
+@fontFamilyBody:      'Open Sans', sans-serif;
+@fontFamilyCode:      @fontFamilyCourier;
+
+h1, h2 {
+    text-transform: uppercase;
+}
+
+a {
+    color: @mainTextColor;
+    text-decoration: none;
+    border-bottom: 1px solid @color-secondary-1-0;
+    // background-color: #eee;
+}
+
+a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid @color-secondary-2-0;
+}
+
+a:visited {
+    color: lighten(@mainTextColor, 25%);
+}
+
+article, section, .block {
+    background-color: @mainBackgroundColor;
+    margin-bottom: @magicNumber*2;
+    // border: 7px solid @mainBackgroundColor;
+    border: @magicNumber/2 solid @mainBackgroundColor;
+}
+
+// ul {
+//     background-color: @color-primary-1;
+// }
+
+figure {
+    background-color: @mainBackgroundColor;
+}
+/** --------------------------------------------------------------
+ *  General stuff, wrapping classes
+ */
+
+.outer-wrap-flash {
+    display: none;
+}
+
+.site-header {
+    align-items: center;
+    justify-content: space-between;
+}
+
+// // Site wide selected class
+.selected a {
+    background-color: @color-secondary-2-1;
+}
+
+/** --------------------------------------------------------------
+ *  header styling
+ */
+
+.site-logo-text {
+    font-weight: bold;
+    font-size: xx-large;
+    // border: 3px solid @color-secondary-1-0;
+    background-color: @color-secondary-1-0;
+    padding: 0 7px;
+    letter-spacing: 0.3rem;
+    a {
+        color: @mainBackgroundColor;
+        border-bottom: none;
+    }
+}
+
+.rm-desktop {
+    font-family: @fontFamilyHeadings;
+    font-size: xx-large;
+
+    background-color: @color-primary-0;
+
+    li a {
+        display: inline;
+        padding: 0;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        text-decoration: none;
+        border-bottom: none;
+    }
+
+    li a:hover {
+        border-bottom: 3px solid @color-secondary-2-1;
+        text-decoration: none;
+    }
+
+    // li {
+    //     border-left: 1px solid lighten(@mainTextColor, 50%);
+    // }
+
+    .selected a {
+        // text-decoration: underline;
+        border-bottom: 3px solid @color-secondary-1-0;
+        background-color: @mainBackgroundColor;
+        text-decoration: none;
+    }
+    ul {
+        padding: 1rem;
+        li {
+            box-shadow: none;
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+.next-previous {
+    background-color: @mainBackgroundColor;
+    font-family: @fontFamilyHeadings;
+    margin-bottom: @magicNumber;
+}
+
+/** --------------------------------------------------------------
+ *  Breadcrumb
+ */
+.breadcrumb-list {
+    font-size: smaller;
+    background-color: @color-secondary-2-1;
+    // a {
+    //     background-color: @color-secondary-2-1;
+    // }
+
+    ul {
+        background-color: @color-secondary-2-1;
+        list-style-type: none;
+        display: flex;
+        padding: 0;
+    }
+
+    li {
+        text-transform: lowercase;
+        &::before {
+            content: "/";
+            color: @mainTextColor;
+        }
+    }
+
+    ul::before {
+        content: "ur@: "
+    }
+}
+
+/** --------------------------------------------------------------
+ *  Main content area
+ */
+
+.sidebar-right {
+    @media (max-width: @screen-medium) {
+        border-top: 1px solid lighten(@mainTextColor, 55%);
+        li {
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+/** --------------------------------------------------------------
+ *  Footer, inkluding byline
+ */
+
+.outer-wrap-footer {
+    color: @mainBackgroundColor;
+    background-color: @mainTextColor;
+}
+
+.footer {
+    a {
+        color: darken(@mainBackgroundColor, 25%);
+    }
+    .block {
+        color: @mainBackgroundColor;
+        background-color: @mainTextColor;
+        border: none;
+    }
+}
