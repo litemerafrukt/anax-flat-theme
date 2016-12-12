@@ -1,0 +1,61 @@
+// Anax-flat
+// Depth theme. Design principle
+
+
+@import url(contrast.less);
+
+.box-shadow {
+    box-shadow: 10px 10px 30px #222;
+}
+
+article, section, .block, .profile, .site-logo-text, .next-previous {
+    .box-shadow();
+}
+
+.blog-list {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+/** --------------------------------------------------------------
+ *  Breadcrumb
+ */
+.breadcrumb-list {
+    font-size: smaller;
+
+    background-color: transparent;
+
+    ul {
+        background-color: transparent;
+        list-style-type: none;
+        display: flex;
+        padding: 0;
+    }
+
+    li {
+        background-color: @color-secondary-2-1;
+        .box-shadow();
+        text-transform: lowercase;
+        &::before {
+            content: "/";
+            color: @mainTextColor;
+        }
+    }
+
+    ul::before {
+        .box-shadow();
+        background-color: @color-secondary-2-1;
+        content: "ur@: "
+    }
+}
+
+.outer-wrap-footer {
+    box-shadow: -15px -10px 10px #222;
+    // background-color: transparent;
+    background-color: #222;
+    // background: linear-gradient(to bottom,rgba(255,255,255,0) 10%,#222);
+    .block {
+        background-color: transparent;
+    }
+}

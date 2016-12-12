@@ -36,8 +36,11 @@
 
 @maxWidth: 100%;
 
+@mainTextColor: #222;
+
 body {
-    background-image: url('../image/wallback/wallwtftiled.jpg&sharpen');
+    // background-image: url('../image/wallback/wallwtftiled.jpg&sharpen&convolve=lighten');
+    background-image: url('../image/wallback/wallwtftiled.jpg?f=grayscale&f0=brightness,97&f1=contrast,-20&sharpen');
 }
 
 // @fontFamilyHeadings:  "miriam libre", sans-serif;
@@ -47,6 +50,9 @@ body {
 @fontFamilyCode:      @fontFamilyCourier;
 
 h1, h2 {
+    background-image: url('../img/texture-back.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
     text-transform: uppercase;
 }
 
@@ -67,10 +73,16 @@ a:visited {
 }
 
 article, section, .block {
-    background-color: @mainBackgroundColor;
+    background-color: fade(@mainBackgroundColor, 90%);
+    background: linear-gradient(to bottom right,rgba(255,255,255,.7) 10%, rgba(111,111,111,.7));
     margin-bottom: @magicNumber*2;
     // border: 7px solid @mainBackgroundColor;
-    border: @magicNumber/2 solid @mainBackgroundColor;
+    // border: @magicNumber/2 solid @mainBackgroundColor;
+    padding: @magicNumber/2;
+}
+
+.blog-list {
+    background: none;
 }
 
 // ul {
@@ -88,6 +100,12 @@ select {
  *  General stuff, wrapping classes
  */
 
+.wrap-all {
+    // background: linear-gradient(to right, white 50%, black 50%);
+    background: linear-gradient(to right,rgba(255, 255, 255, 0) 70%,#222);
+    background-size: 100% 50px;
+}
+
 .outer-wrap-flash {
     display: none;
 }
@@ -95,6 +113,7 @@ select {
 .site-header {
     // align-items: center;
     // justify-content: space-between;
+    // opacity: .9;
     @media (max-width: @screen-large) {
         flex-wrap: wrap;
         padding: @magicNumber 0;
@@ -102,12 +121,17 @@ select {
     @media (max-width: @screen-medium) {
         flex-wrap: nowrap;
     }
+    @media (max-width: @screen-xsmall) {
+        flex-direction: column-reverse;
+        margin-top: @magicNumber;
+    }
 }
 
 // // Site wide selected class
 .selected a {
     background-color: @color-secondary-2-1;
 }
+
 
 /** --------------------------------------------------------------
  *  header styling
@@ -120,6 +144,7 @@ select {
     background-color: @color-secondary-1-0;
     padding: 0 7px;
     letter-spacing: 0.3rem;
+    opacity: 0.9;
     a {
         color: @mainBackgroundColor;
         border-bottom: none;
@@ -135,6 +160,13 @@ select {
     font-size: xx-large;
 
     background-color: @color-primary-0;
+    opacity: 0.9;
+
+    background-image: url('../img/menu-texture.png');
+    background-repeat: no-repeat;
+    background-color: fade(@color-primary-0, 90%);
+    background-size: contain;
+    background-position: right;
 
     li a {
         display: inline;
@@ -170,7 +202,7 @@ select {
 }
 
 .next-previous {
-    background-color: @mainBackgroundColor;
+    background-color: fade(@mainBackgroundColor, 90%);
     font-family: @fontFamilyHeadings;
     margin-bottom: @magicNumber;
 }
@@ -180,19 +212,17 @@ select {
  */
 .breadcrumb-list {
     font-size: smaller;
-    background-color: @color-secondary-2-1;
-    // a {
-    //     background-color: @color-secondary-2-1;
-    // }
+    // background-color: @color-secondary-2-1;
+    opacity: 0.8;
 
     ul {
-        background-color: @color-secondary-2-1;
         list-style-type: none;
         display: flex;
         padding: 0;
     }
 
     li {
+        background-color: @color-secondary-2-1;
         text-transform: lowercase;
         &::before {
             content: "/";
@@ -201,6 +231,7 @@ select {
     }
 
     ul::before {
+        background-color: @color-secondary-2-1;
         content: "ur@: "
     }
 }
@@ -225,7 +256,12 @@ select {
 
 .outer-wrap-footer {
     color: @mainBackgroundColor;
-    background-color: @mainTextColor;
+    background-color: fade(@mainTextColor, 90%);
+    // background-color: fade(@mainTextColor, 90%);
+}
+
+.inner-wrap-footer {
+    background: linear-gradient(to bottom right,rgba(255, 255, 255, 0) 10%,#222);
 }
 
 .footer {
@@ -234,7 +270,9 @@ select {
     }
     .block {
         color: @mainBackgroundColor;
-        background-color: @mainTextColor;
+        background-color: fade(@mainTextColor, 0%);
+        background: none;
+        // background-color: fade(@mainTextColor, 0%);
         border: none;
     }
 }

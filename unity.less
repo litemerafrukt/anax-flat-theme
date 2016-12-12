@@ -1,0 +1,74 @@
+// Style based on typography
+@import url(lightColorDarkBase.less);
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Playfair+Display');
+
+@color-primary-0: #FFF1E3;	/* Main Primary color */
+@color-primary-1: #FFFFFE;
+@color-primary-2: #FFFAF5;
+@color-primary-3: #DBC4AE;
+@color-primary-4: #BA9B7B;
+
+@fontFamilyBody: "Crimson Text", serif;
+@fontFamilyHeadings: "Playfair Display", serif;
+
+@mainBackgroundColor: @color-primary-2;
+@mainTextColor: darken(@color-primary-4, 20%);
+
+@borderHeadFoot: 5px double @color-primary-4;
+@borderFlash: 2px solid @color-primary-4;
+
+h1, h2 {
+    border-bottom: 3px double @mainTextColor;
+}
+
+.site-header {
+    // font-family: @fontFamilyHeadings;
+    background-color: @mainBackgroundColor;
+    font-weight: bold;
+    font-size: x-large;
+    height: @magicNumber * 5 - 5;
+
+}
+
+.site-logo-text {
+    font-size: xx-large;
+    background-color: @color-primary-4;
+}
+
+.rm-desktop {
+    a {
+        color: @color-primary-4;
+    }
+    .selected a {
+        background-color: @mainBackgroundColor;
+    }
+    ul {
+        background-color: @mainBackgroundColor;
+    }
+}
+
+h1 a {
+    color: @mainTextColor;
+    text-decoration: none;
+    &:visited {
+        color: @mainTextColor;
+    }
+}
+
+h2 a {
+    color: @mainTextColor;
+    text-decoration: none;
+}
+
+.footer {
+
+    background-color: @mainBackgroundColor;
+
+    ul {
+        list-style-type: none;
+    }
+}
+
+.toc {
+    list-style-type: none;
+}
